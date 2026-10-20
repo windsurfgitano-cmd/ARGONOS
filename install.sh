@@ -22,7 +22,10 @@ BASE="${XDG_DATA_HOME:-$HOME/.local/share}/argonos"
 VERSION="0.1.0"
 
 # --- Arranque: si llegó por curl | bash, baja el repo y se vuelve a llamar desde ahí ------------
-AQUI="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd || echo "")"
+AQUI=""
+if [[ -n ${BASH_SOURCE[0]:-} && -f ${BASH_SOURCE[0]} ]]; then
+  AQUI="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+fi
 if [[ -z "$AQUI" || ! -d "$AQUI/argon" || ! -d "$AQUI/config" ]]; then
   command -v git >/dev/null || { echo "Falta git: sudo apt install -y git" >&2; exit 1; }
   if [[ -d "$BASE/src/.git" ]]; then
