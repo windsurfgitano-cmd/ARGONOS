@@ -1,0 +1,15 @@
+{
+  "uuid": "argon@argonos",
+  "name": "ARGON",
+  "description": "Orbe de ARGON en el panel: estado de Strata, tareas, batería y flota. Super + Espacio abre la ventana ARGON.",
+  "shell-version": [
+    "46",
+    "47",
+    "48",
+    "49",
+    "50"
+  ],
+  "version": 3,
+  "url": "https://github.com/windsurfgitano-cmd/ARGONOS",
+  "settings-schema": "org.gnome.shell.extensions.argon"
+}

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=ARGON
+Comment=Asistente del escritorio: pedidos, historial y tareas
+Exec=sh -c 'exec /usr/bin/python3 "$HOME/.local/share/argon/argon_app.py"'
+Icon=argon
+Terminal=false
+Categories=Utility;
+StartupWMClass=dev.argon.Argon

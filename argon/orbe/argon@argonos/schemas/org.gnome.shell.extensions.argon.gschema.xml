@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.argon" path="/org/gnome/shell/extensions/argon/">
+    <key name="command-bar-shortcut" type="as">
+      <default><![CDATA[['<Super>space']]]></default>
+      <summary>Atajo de la barra de comandos</summary>
+      <description>Abre o cierra la barra de comandos de ARGON.</description>
+    </key>
+  </schema>
+</schemalist>

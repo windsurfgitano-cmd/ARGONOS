@@ -1,0 +1,81 @@
+# ARGON OS — ajustes de las extensiones de GNOME.
+# Se cargan con: dconf load /org/gnome/shell/extensions/ < config/extensiones.dconf
+
+[blur-my-shell]
+pipelines={'pipeline_default': {'name': <'Default'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000000'>, 'params': <{'radius': <30>, 'brightness': <0.59999999999999998>}>}>]>}, 'pipeline_default_rounded': {'name': <'Default rounded'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000001'>, 'params': <{'radius': <30>, 'brightness': <0.59999999999999998>}>}>, <{'type': <'corner'>, 'id': <'effect_000000000002'>, 'params': <{'radius': <24>}>}>]>}, 'pipeline_argon': {'name': <'ARGON'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_argon_blur'>, 'params': <{'radius': <34>, 'brightness': <0.55000000000000004>}>}>, <{'type': <'color'>, 'id': <'effect_argon_tint'>, 'params': <{'color': <(0.050000000000000003, 0.17999999999999999, 0.13, 0.41999999999999998)>}>}>]>}}
+
+[blur-my-shell/appfolder]
+brightness=0.59999999999999998
+sigma=30
+
+[blur-my-shell/applications]
+blur=true
+opacity=228
+whitelist=['org.gnome.Ptyxis']
+
+[blur-my-shell/dash-to-dock]
+blur=true
+brightness=0.59999999999999998
+sigma=30
+static-blur=true
+style-dash-to-dock=0
+
+[blur-my-shell/panel]
+brightness=0.59999999999999998
+corner-radius=0
+pipeline='pipeline_argon'
+sigma=30
+
+[blur-my-shell/window-list]
+brightness=0.59999999999999998
+sigma=30
+
+[dash2dock-lite]
+animate-icons=true
+animation-magnify=0.40000000000000002
+background-color=(0.01, 0.13, 0.12, 0.55000000000000004)
+blur-background=true
+border-color=(0.81000000000000005, 0.91000000000000003, 0.87, 0.14000000000000001)
+border-radius=4.0
+border-thickness=1
+icon-shadow=true
+open-app-animation=true
+running-indicator-color=(0.64000000000000001, 0.55000000000000004, 1.0, 1.0)
+
+[coverflowalttab]
+switcher-background-color=(1.0, 1.0, 1.0)
+
+[space-bar/appearance]
+active-workspace-background-color='rgba(62,224,160,0.92)'
+active-workspace-border-color='rgba(62,224,160,1)'
+active-workspace-border-radius=12
+active-workspace-border-width=1
+active-workspace-padding-h=8
+active-workspace-padding-v=2
+active-workspace-text-color='rgba(4,33,26,1)'
+application-styles='.space-bar {\n  -natural-hpadding: 12px;\n}\n\n.space-bar-workspace-label.active {\n  margin: 0 6px;\n  background-color: rgba(62,224,160,0.92);\n  color: rgba(4,33,26,1);\n  border-color: rgba(62,224,160,1);\n  font-weight: 700;\n  border-radius: 12px;\n  border-width: 1px;\n  padding: 2px 8px;\n}\n\n.space-bar-workspace-label.inactive {\n  margin: 0 6px;\n  background-color: rgba(0,0,0,0);\n  color: rgba(230,242,236,0.95);\n  border-color: rgba(207,233,221,0.35);\n  font-weight: 700;\n  border-radius: 12px;\n  border-width: 1px;\n  padding: 2px 8px;\n}\n\n.space-bar-workspace-label.inactive.empty {\n  margin: 0 6px;\n  background-color: rgba(0,0,0,0);\n  color: rgba(230,242,236,0.55);\n  border-color: rgba(207,233,221,0.35);\n  font-weight: 700;\n  border-radius: 12px;\n  border-width: 1px;\n  padding: 2px 8px;\n}'
+empty-workspace-background-color='rgba(0,0,0,0)'
+empty-workspace-border-color='rgba(207,233,221,0.35)'
+empty-workspace-border-radius=12
+empty-workspace-border-radius-active=true
+empty-workspace-border-width=1
+empty-workspace-border-width-active=true
+empty-workspace-padding-h=8
+empty-workspace-padding-h-active=true
+empty-workspace-padding-v=2
+empty-workspace-padding-v-active=true
+empty-workspace-text-color='rgba(230,242,236,0.55)'
+inactive-workspace-background-color='rgba(0,0,0,0)'
+inactive-workspace-border-color='rgba(207,233,221,0.35)'
+inactive-workspace-border-radius=12
+inactive-workspace-border-radius-active=true
+inactive-workspace-border-width=1
+inactive-workspace-border-width-active=true
+inactive-workspace-padding-h=8
+inactive-workspace-padding-h-active=true
+inactive-workspace-padding-v=2
+inactive-workspace-padding-v-active=true
+inactive-workspace-text-color='rgba(230,242,236,0.95)'
+inactive-workspace-text-color-active=true
+workspace-margin=6
+

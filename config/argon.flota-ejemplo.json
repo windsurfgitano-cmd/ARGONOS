@@ -1,0 +1,16 @@
+{
+  "nombre": "Ana",
+  "carpetas": {"Proyectos": "~/Proyectos"},
+  "flota": [
+    {"label": "SERVIDOR", "dns": "servidor.", "note": "coordinador"},
+    {"label": "NAS", "dns": "nas.", "note": "respaldos"}
+  ],
+  "hub": {
+    "nombre": "SERVIDOR",
+    "ssh": "usuario@servidor",
+    "endpoint": "hermes-bus-gateway",
+    "remitente": "argon-laptop",
+    "destino": "responde por Telegram con un resumen y rutas verificables.",
+    "protocolo": "verifica antes de ejecutar."
+  }
+}

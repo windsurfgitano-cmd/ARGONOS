@@ -1,0 +1,12 @@
+[Unit]
+Description=ARGON — voz (Whisper para escuchar, Piper para hablar)
+After=graphical-session.target pipewire.service
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/share/argon/voz/bin/python %h/.local/share/argon/argon_voz.py
+Nice=5
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

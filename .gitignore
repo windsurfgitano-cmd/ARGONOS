@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.bak
+*.log
+.venv/
+node_modules/
+third_party/
+argon/instalar/respaldo-*/
+argon/login-argon/gnome-shell-theme.gresource
+argon/orbe/*/schemas/gschemas.compiled
+# Ajustes personales: nunca al repo
+argon.json
+.env*

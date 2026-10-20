@@ -1,0 +1,50 @@
+/* ARGON — apps GTK4/libadwaita según el mockup (argon/diseno/).
+   Superficies: negro verdoso phthalo. Interacción: violeta argón.
+   Borra este archivo para volver al aspecto original. */
+
+:root {
+  --accent-bg-color: #7a5cf0;
+  --accent-color: #b4a0ff;
+  --accent-fg-color: #ffffff;
+
+  --window-bg-color: #041a18;
+  --window-fg-color: #e6f2ec;
+  --view-bg-color: #031615;
+  --view-fg-color: #e6f2ec;
+  --headerbar-bg-color: #052322;
+  --headerbar-fg-color: #e6f2ec;
+  --headerbar-backdrop-color: #041a18;
+  --sidebar-bg-color: #03191c;
+  --sidebar-fg-color: #dcebe4;
+  --sidebar-backdrop-color: #031517;
+  --secondary-sidebar-bg-color: #031517;
+  --card-bg-color: rgba(207, 233, 221, 0.05);
+  --popover-bg-color: #062724;
+  --dialog-bg-color: #052322;
+  --thumbnail-bg-color: #052322;
+}
+
+/* Compatibilidad con apps que usan los nombres antiguos. */
+@define-color accent_bg_color #7a5cf0;
+@define-color accent_color #b4a0ff;
+@define-color accent_fg_color #ffffff;
+@define-color window_bg_color #041a18;
+@define-color view_bg_color #031615;
+@define-color headerbar_bg_color #052322;
+@define-color sidebar_bg_color #03191c;
+@define-color popover_bg_color #062724;
+@define-color dialog_bg_color #052322;
+
+/* Fila seleccionada en violeta sólido, como en Archivos del mockup. */
+.navigation-sidebar > row:selected,
+listview > row:selected,
+columnview > listview > row:selected,
+list > row:selected {
+  background-color: #3e2f96;
+  color: #ffffff;
+}
+
+/* Borde fino verde menta alrededor de las ventanas. */
+window.background:not(.maximized):not(.fullscreen) {
+  box-shadow: 0 0 0 1px rgba(207, 233, 221, 0.10), 0 10px 40px rgba(0, 0, 0, 0.45);
+}

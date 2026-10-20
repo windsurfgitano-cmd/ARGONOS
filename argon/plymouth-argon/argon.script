@@ -1,0 +1,91 @@
+# ARGON: pantalla de arranque.
+# El orbe respira (cambia su opacidad), la línea violeta muestra el avance
+# y, si el sistema pide una contraseña, aparece debajo como puntos.
+
+Window.SetBackgroundTopColor(0.016, 0.035, 0.027);     # negro phthalo
+Window.SetBackgroundBottomColor(0.008, 0.020, 0.016);
+
+# Todo se diseñó para 1440 px de alto; en otras pantallas se escala.
+scale = Window.GetHeight() / 1440;
+if (scale <= 0) scale = 1;
+cx = Window.GetX() + Window.GetWidth() / 2;
+cy = Window.GetY() + Window.GetHeight() / 2;
+
+fun scaled(img) {
+    return img.Scale(Math.Int(img.GetWidth() * scale), Math.Int(img.GetHeight() * scale));
+}
+
+# Orbe animado: secuencia de cuadros orb-000.png… (en bucle). Si no hay cuadros, usa orb.png fijo.
+ORB_FRAMES = 60;   # lo escribe herramientas/orbe_animado.py al armar los cuadros
+ORB_FPS = 20;
+orb_frames[0] = scaled(Image("orb.png"));
+for (i = 0; i < ORB_FRAMES; i++) {
+    pad = "";
+    if (i < 100) pad = "0";
+    if (i < 10) pad = "00";
+    orb_frames[i] = scaled(Image("orb-" + pad + i + ".png"));
+}
+orb_count = ORB_FRAMES;
+if (orb_count < 1) orb_count = 1;
+orb_image = orb_frames[0];
+glow_image = scaled(Image("glow.png"));
+glow = Sprite(glow_image);
+glow.SetPosition(cx - glow_image.GetWidth() / 2, cy - 160 * scale - glow_image.GetHeight() / 2, 9);
+orb = Sprite(orb_image);
+orb.SetPosition(cx - orb_image.GetWidth() / 2, cy - 160 * scale - orb_image.GetHeight() / 2, 10);
+
+word_image = scaled(Image("wordmark.png"));
+word = Sprite(word_image);
+word.SetPosition(cx - word_image.GetWidth() / 2, cy + 80 * scale, 10);
+
+bar_bg_image = scaled(Image("bar-bg.png"));
+bar_fg_source = Image("bar-fg.png");
+bar_y = cy + 420 * scale;
+bar_x = cx - bar_bg_image.GetWidth() / 2;
+bar_bg = Sprite(bar_bg_image);
+bar_bg.SetPosition(bar_x, bar_y, 10);
+bar_fg = Sprite();
+bar_fg.SetPosition(bar_x, bar_y, 11);
+
+# Plymouth llama esto ~50 veces por segundo: avanza el plasma a ORB_FPS.
+# Sin cuadros, el orbe fijo solo respira (cambia su brillo).
+tick = 0;
+fun refresh_callback() {
+    tick++;
+    if (orb_count > 1) {
+        frame = Math.Int(tick * ORB_FPS / 50) % orb_count;
+        orb.SetImage(orb_frames[frame]);
+    } else {
+        orb.SetOpacity(0.78 + 0.22 * Math.Sin(tick / 24));
+    }
+}
+Plymouth.SetRefreshFunction(refresh_callback);
+
+fun progress_callback(duration, progress) {
+    width = Math.Int(bar_bg_image.GetWidth() * progress);
+    if (width < 1) width = 1;
+    bar_fg.SetImage(bar_fg_source.Scale(width, bar_bg_image.GetHeight()));
+}
+Plymouth.SetBootProgressFunction(progress_callback);
+
+# Contraseña (por ejemplo, un disco cifrado): puntos bajo la línea de avance.
+prompt_sprite = Sprite();
+dots_sprite = Sprite();
+
+fun display_password_callback(prompt, bullets) {
+    prompt_image = Image.Text(prompt, 0.90, 0.90, 0.94, 1, "Ubuntu Sans 14");
+    prompt_sprite.SetImage(prompt_image);
+    prompt_sprite.SetPosition(cx - prompt_image.GetWidth() / 2, bar_y + 40 * scale, 12);
+    dots = "";
+    for (i = 0; i < bullets; i++) dots += "• ";
+    dots_image = Image.Text(dots, 0.643, 0.545, 1.0, 1, "Ubuntu Sans 18");
+    dots_sprite.SetImage(dots_image);
+    dots_sprite.SetPosition(cx - dots_image.GetWidth() / 2, bar_y + 80 * scale, 12);
+}
+Plymouth.SetDisplayPasswordFunction(display_password_callback);
+
+fun display_normal_callback() {
+    prompt_sprite.SetImage(Image.Text("", 0, 0, 0, 0));
+    dots_sprite.SetImage(Image.Text("", 0, 0, 0, 0));
+}
+Plymouth.SetDisplayNormalFunction(display_normal_callback);

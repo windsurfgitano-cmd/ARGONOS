@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=ARGON
+Description=Orbe de argón que respira mientras arranca el sistema
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/argon
+ScriptFile=/usr/share/plymouth/themes/argon/argon.script

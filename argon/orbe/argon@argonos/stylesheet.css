@@ -1,0 +1,106 @@
+.argon-orb {
+  icon-size: 18px;
+}
+
+.argon-title {
+  font-weight: 300;
+  letter-spacing: 4px;
+}
+
+.argon-detail {
+  font-size: 0.86em;
+  color: rgba(225, 225, 240, 0.7);
+}
+
+.argon-warning {
+  color: #e7b85c;
+}
+
+/* Botón de acción del menú, con borde verde como en la hoja de componentes. */
+.argon-action {
+  margin: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(20, 131, 92, 0.9);
+  background-color: rgba(20, 131, 92, 0.18);
+}
+
+.argon-action:hover,
+.argon-action:focus {
+  background-color: rgba(20, 131, 92, 0.32);
+}
+
+/* ===== Barra de comandos (hoja de componentes, pieza 9) ===== */
+.argon-cb-overlay {
+  background-color: rgba(2, 10, 9, 0.45);
+}
+
+.argon-cb {
+  width: 760px;
+  padding: 18px 20px 14px 20px;
+  spacing: 12px;
+  border-radius: 20px;
+  background-color: rgba(4, 30, 27, 0.96);
+  border: 1px solid rgba(164, 139, 255, 0.45);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+}
+
+.argon-cb-row { spacing: 14px; }
+.argon-cb-orb { icon-size: 34px; }
+
+.argon-cb-entry {
+  font-size: 1.15em;
+  color: #e6f2ec;
+  background-color: rgba(207, 233, 221, 0.06);
+  border: 1px solid rgba(207, 233, 221, 0.12);
+  border-radius: 12px;
+  padding: 10px 14px;
+  selection-background-color: #7a5cf0;
+  caret-color: #a48bff;
+}
+
+.argon-cb-entry:focus { border-color: rgba(164, 139, 255, 0.7); }
+
+.argon-cb-status { color: rgba(207, 233, 221, 0.8); padding: 0 4px; }
+.argon-cb-error { color: #ff8f9c; }
+
+.argon-cb-steps { spacing: 8px; }
+.argon-cb-step {
+  spacing: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background-color: rgba(207, 233, 221, 0.04);
+  color: #e6f2ec;
+}
+
+.argon-cb-num {
+  min-width: 22px;
+  border-radius: 11px;
+  background-color: #7a5cf0;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.argon-cb-mark { color: rgba(207, 233, 221, 0.5); font-weight: bold; }
+.argon-cb-done { color: #3ee0a0; }
+.argon-cb-failed { color: #ff5d6d; }
+
+.argon-cb-footer { spacing: 8px; }
+.argon-cb-chip {
+  font-size: 0.85em;
+  color: rgba(207, 233, 221, 0.75);
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(207, 233, 221, 0.15);
+}
+
+.argon-cb-brief {
+  margin: 4px 0 2px 46px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 0.85em;
+  color: rgba(207, 233, 221, 0.85);
+  background-color: rgba(164, 139, 255, 0.08);
+  border: 1px solid rgba(164, 139, 255, 0.25);
+}

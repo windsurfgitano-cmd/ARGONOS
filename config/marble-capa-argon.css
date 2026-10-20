@@ -1,0 +1,19 @@
+
+/* ===== ARGON: superficies de vidrio verde phthalo, según el mockup (argon/diseno/) =====
+   Marble pone el tono violeta en todo; aquí las superficies pasan a verde y el violeta
+   queda solo en lo interactivo. Para quitarlo, restaura argon/fondos/marble-argon-original.css. */
+.popup-menu-content,
+.notification-banner,
+.osd-window,
+.switcher-list,
+.modal-dialog {
+	background-color: rgba(4, 30, 27, 0.94);
+	border: 1px solid rgba(207, 233, 221, 0.12);
+	color: #e6f2ec;
+}
+
+.message-list .message,
+.popup-menu-content .message,
+.message-view .message {
+	background-color: rgba(207, 233, 221, 0.05);
+}
