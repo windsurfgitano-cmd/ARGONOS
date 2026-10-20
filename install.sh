@@ -34,7 +34,7 @@ if [[ -z "$AQUI" || ! -d "$AQUI/argon" || ! -d "$AQUI/config" ]]; then
     mkdir -p "$BASE"
     git clone -q --depth 1 -b "$RAMA" "$REPO_URL" "$BASE/src"
   fi
-  if [[ -r /dev/tty ]]; then
+  if { : </dev/tty; } 2>/dev/null; then
     exec bash "$BASE/src/install.sh" "$@" </dev/tty
   fi
   exec bash "$BASE/src/install.sh" "$@"
